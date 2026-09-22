@@ -1,22 +1,32 @@
-import { Outlet, NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Outlet, NavLink, Link, useLocation } from 'react-router-dom';
 
 export default function Layout() {
+  const [navOpen, setNavOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setNavOpen(false);
+    window.scrollTo(0, 0);
+  }, [location.pathname, location.search]);
+
   return (
     <>
       <header className="site-header">
         <div className="wrap site-header__bar">
-          <a className="brand" href="/">
+          <Link className="brand" to="/">
             <img className="brand__mark" src="/images/logo.jpg" alt="Clean Sweets" />
             <span className="brand__name">clean sweets</span>
-          </a>
+          </Link>
           <button
             className="nav-toggle"
             aria-label="פתח תפריט"
-            onClick={() => document.getElementById('nav').classList.toggle('open')}
+            aria-expanded={navOpen}
+            onClick={() => setNavOpen((open) => !open)}
           >
             &#9776;
           </button>
-          <nav className="nav" id="nav">
+          <nav className={`nav${navOpen ? ' open' : ''}`} id="nav">
             <NavLink to="/" end>בית</NavLink>
             <NavLink to="/portfolio">עליי</NavLink>
             <NavLink to="/blog">מתכונים</NavLink>
@@ -32,9 +42,9 @@ export default function Layout() {
       <footer className="site-footer">
         <div className="wrap">
           <div className="footer-links">
-            <a href="/terms">תנאי שימוש</a>
-            <a href="/contact">צור קשר</a>
-            <a href="/privacy">מדיניות פרטיות</a>
+            <Link to="/terms">תנאי שימוש</Link>
+            <Link to="/contact">צור קשר</Link>
+            <Link to="/privacy">מדיניות פרטיות</Link>
           </div>
           <p className="copy">כל הזכויות שמורות לניקה בליאק 2026</p>
         </div>

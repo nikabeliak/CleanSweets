@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { usePosts } from '../hooks/usePosts';
+import { assetUrl, useTitle } from '../utils';
 
 export default function Blog() {
   const { posts, loading, categories } = usePosts();
   const [searchParams] = useSearchParams();
   const filterCategory = searchParams.get('cat') || '';
   const [activeCategory, setActiveCategory] = useState(filterCategory);
+  useTitle(activeCategory ? `מתכונים: ${activeCategory}` : 'מתכונים');
 
   useEffect(() => {
-    if (filterCategory) setActiveCategory(filterCategory);
+    setActiveCategory(filterCategory);
   }, [filterCategory]);
 
   const filtered = activeCategory
@@ -51,7 +53,7 @@ export default function Blog() {
           <div className="grid">
             {filtered.map((p) => (
               <Link key={p.n} className="card" to={`/blog/${p.n}`}>
-                <img className="card__img" loading="lazy" src={p.hero} alt={p.title} />
+                <img className="card__img" loading="lazy" src={assetUrl(p.hero)} alt={p.title} />
                 <div className="card__body">
                   <h3 className="card__title">{p.title}</h3>
                 </div>

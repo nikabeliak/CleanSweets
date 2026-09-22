@@ -9,6 +9,10 @@ import Post from './components/Post';
 import Search from './components/Search';
 import Contact from './components/Contact';
 import Portfolio from './components/Portfolio';
+import Promo from './components/Promo';
+import Privacy from './components/Privacy';
+import Terms from './components/Terms';
+import NotFound from './components/NotFound';
 
 export default function App() {
   return (
@@ -24,6 +28,10 @@ export default function App() {
           <Route path="search" element={<Search />} />
           <Route path="contact" element={<Contact />} />
           <Route path="portfolio" element={<Portfolio />} />
+          <Route path="promo" element={<Promo />} />
+          <Route path="privacy" element={<Privacy />} />
+          <Route path="terms" element={<Terms />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

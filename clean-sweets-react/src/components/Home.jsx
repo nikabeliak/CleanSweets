@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { usePosts, useArticles } from '../hooks/usePosts';
+import { assetUrl, useTitle } from '../utils';
 
 export default function Home() {
   const { posts } = usePosts();
   const articles = useArticles();
+  useTitle('');
 
   const latestRecipes = posts.slice(0, 6);
   const featuredArticles = articles.slice(0, 6);
@@ -20,7 +22,7 @@ export default function Home() {
         <div className="promo">
           <h2>קוד מועדון לניצת הדובדבן</h2>
           <div className="code">600161</div>
-          <p>5%% הנחה על כל המוצרים &middot; כולל כפל מבצעים</p>
+          <p>5% הנחה על כל המוצרים &middot; כולל כפל מבצעים</p>
           <p>הקוד תקף לכולם וניתן למימוש בכל סניפי ניצת הדובדבן ובאונליין.</p>
           <p>כל מה שעליכם לעשות זה לתת את קוד המועדון בקופה בסיום הרכישה או להקליד אותו בהערות להזמנה בהזמנות באונליין.</p>
           <Link className="btn" to="/promo">פרטים נוספים</Link>
@@ -32,7 +34,7 @@ export default function Home() {
         <div className="grid">
           {latestRecipes.map((p) => (
             <Link key={p.n} className="card" to={`/blog/${p.n}`}>
-              <img className="card__img" loading="lazy" src={p.hero} alt={p.title} />
+              <img className="card__img" loading="lazy" src={assetUrl(p.hero)} alt={p.title} />
               <div className="card__body">
                 <h3 className="card__title">{p.title}</h3>
               </div>
@@ -66,7 +68,7 @@ export default function Home() {
         <div className="grid">
           {featuredArticles.map((a) => (
             <Link key={a.id} className="card" to={`/articles/${a.id}`}>
-              <img className="card__img" loading="lazy" src={a.image} alt={a.title} />
+              <img className="card__img" loading="lazy" src={assetUrl(a.image)} alt={a.title} />
               <div className="card__body">
                 <h3 className="card__title">{a.title}</h3>
               </div>
