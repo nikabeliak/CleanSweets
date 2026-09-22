@@ -11,21 +11,38 @@ const RECIPE_CATS = [
 
 export default function Layout() {
   const [navOpen, setNavOpen] = useState(false);
+  const [recipesOpen, setRecipesOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     setNavOpen(false);
+    setRecipesOpen(false);
     window.scrollTo(0, 0);
   }, [location.pathname, location.search]);
 
   return (
     <>
+      {navOpen && (
+        <button className="nav-backdrop" aria-label="סגור תפריט" onClick={() => setNavOpen(false)} />
+      )}
       <header className="site-header">
         <div className="wrap site-header__bar">
           <nav className={`nav nav--start${navOpen ? ' open' : ''}`} id="nav">
+            <button type="button" className="nav__close" aria-label="סגור" onClick={() => setNavOpen(false)}>
+              ×
+            </button>
             <NavLink to="/portfolio">עליי</NavLink>
-            <div className="nav__dropdown">
+            <div className={`nav__dropdown${recipesOpen ? ' is-open' : ''}`}>
               <NavLink to="/blog">מתכונים</NavLink>
+              <button
+                type="button"
+                className="nav__more"
+                aria-label="קטגוריות"
+                aria-expanded={recipesOpen}
+                onClick={() => setRecipesOpen((open) => !open)}
+              >
+                ▾
+              </button>
               <div className="nav__menu">
                 {RECIPE_CATS.map((cat) => (
                   <Link key={cat.name} to={cat.to}>{cat.name}</Link>
@@ -34,7 +51,13 @@ export default function Layout() {
             </div>
             <NavLink to="/" end className="nav__home-mobile">בית</NavLink>
             <NavLink to="/articles" className="nav__home-mobile">כתבות</NavLink>
-            <NavLink to="/search" className="nav__home-mobile">חיפוש</NavLink>
+            <Link className="nav__search-mobile nav__home-mobile" to="/search">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" strokeWidth="1.6" />
+                <path d="M16 16.5L20 20.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+              </svg>
+              חיפוש
+            </Link>
           </nav>
 
           <Link className="brand" to="/" aria-label="clean sweets">
@@ -47,7 +70,9 @@ export default function Layout() {
             aria-expanded={navOpen}
             onClick={() => setNavOpen((open) => !open)}
           >
-            &#9776;
+            <svg viewBox="0 0 24 16" width="26" height="16" aria-hidden="true">
+              <path d="M0 1h24M0 8h24M0 15h24" fill="none" stroke="currentColor" strokeWidth="1.6" />
+            </svg>
           </button>
 
           <nav className="nav nav--end">

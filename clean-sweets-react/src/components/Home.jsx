@@ -65,7 +65,7 @@ export default function Home() {
         >
           ‹
         </button>
-        <div className="showcase__frame" key={slide}>
+        <div className={`showcase__frame${slide % 2 ? ' is-flip' : ''}`} key={slide}>
           <div className="showcase__copy">
             <h1>{current.title}</h1>
             <p className={`showcase__line${current.line === 'clean sweets' ? ' showcase__line--script' : ''}`}>{current.line}</p>
@@ -124,6 +124,9 @@ export default function Home() {
             </Link>
           ))}
         </div>
+        <p className="center recipes__more">
+          <Link className="btn btn--line btn--ink" to="/blog">מתכונים נוספים</Link>
+        </p>
       </section>
 
       <section className="story">
