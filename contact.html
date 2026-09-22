@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>צור קשר | Clean Sweets</title>
+  <link rel="icon" href="images/logo.jpg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap site-header__bar">
+    <a class="brand" href="index.html">
+      <img class="brand__mark" src="images/logo.jpg" alt="Clean Sweets">
+      <span class="brand__name">clean sweets</span>
+    </a>
+    <button class="nav-toggle" aria-label="פתח תפריט" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
+    <nav class="nav" id="nav"><a href="index.html">בית</a><a href="portfolio.html">עליי</a><a href="blog.html">מתכונים</a><a href="articles.html">כתבות</a><a href="categories.html">קטגוריות</a><a href="search.html">חיפוש</a></nav>
+  </div>
+</header>
+<main>
+<section class="hero wrap"><h1>צור קשר - Clean Sweets</h1></section>
+<section class="section wrap" style="max-width:900px">
+  <p>היי! אני שמחה שקפצתם לבקר ב-Clean Sweets. יש לכם שאלה על מתכון? הצלחתם להכין קינוח מטורף ואתם חייבים לשתף? או אולי סתם בא לכם להגיד שלום? אני כאן ואשמח לשמוע מכם.</p>
+  <h2>שיתופי פעולה ותוכן</h2>
+  <p>אני מאמינה בחיבורים שיוצרים ערך אמיתי. אם אתם מותג מעולם הבריאות, האפייה או הלייף-סטייל ומחפשים ליצור שיתופי פעולה יצירתיים, פיתוח מתכונים ייחודיים או תוכן ויזואלי איכותי – אני כאן ואשמח לשמוע על ההצעה שלכם.</p>
+  <h2>איפה אפשר למצוא אותי?</h2>
+  <p>באינסטגרם: זה המקום שבו הכל קורה! אני מעלה שם סרטונים, טיפים יומיים ומענה לשאלות בזמן אמת. מוזמנים לעקוב ולשלוח לי הודעה פרטית (DM):</p>
+  <p>במייל: לשיתופי פעולה, שאלות מפורטות או הצעות עסקיות, שלחו לי מייל לכתובת:</p>
+  <p>כאן באתר: מוזמנים למלא את הפרטים בטופס בתחתית העמוד, ואחזור אליכם בהקדם האפשרי.</p>
+  <p>אינסטגרם: <strong>cleansweets_com</strong><br>אימייל: <strong>Nika.beliak@gmail.com</strong></p>
+</section>
+<section class="newsletter">
+  <div class="wrap">
+    <h2>פה כדי להקשיב לכם</h2>
+    <p>מוזמנים לשתף אותי פה בשאלות, הצעות ובקשות לתכנים</p>
+    <form class="form" onsubmit="return window.__csSubmit(event)">
+      <label for="c-name">שם מלא *</label>
+      <input id="c-name" name="name" required>
+      <label for="c-email">כתובת מייל *</label>
+      <input id="c-email" type="email" name="email" required>
+      <label for="c-msg">הודעה</label>
+      <textarea id="c-msg" name="message"></textarea>
+      <button class="btn" type="submit">שלח</button>
+    </form>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-links"><a href="terms.html">תנאי שימוש</a><a href="contact.html">צור קשר</a><a href="privacy.html">מדיניות פרטיות</a></div>
+    <p class="copy">כל הזכויות שמורות לניקה בליאק 2026</p>
+  </div>
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>

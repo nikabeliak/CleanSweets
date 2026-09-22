@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>חיפוש | Clean Sweets</title>
+  <link rel="icon" href="images/logo.jpg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap site-header__bar">
+    <a class="brand" href="index.html">
+      <img class="brand__mark" src="images/logo.jpg" alt="Clean Sweets">
+      <span class="brand__name">clean sweets</span>
+    </a>
+    <button class="nav-toggle" aria-label="פתח תפריט" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
+    <nav class="nav" id="nav"><a href="index.html">בית</a><a href="portfolio.html">עליי</a><a href="blog.html">מתכונים</a><a href="articles.html">כתבות</a><a href="categories.html">קטגוריות</a><a href="search.html" aria-current="page">חיפוש</a></nav>
+  </div>
+</header>
+<main>
+<section class="hero wrap"><h1>חיפוש</h1>
+  <input id="q" class="search-input" placeholder="חפשו מתכון או כתבה...">
+</section>
+<section class="section wrap" style="max-width:760px"><div id="results"></div></section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-links"><a href="terms.html">תנאי שימוש</a><a href="contact.html">צור קשר</a><a href="privacy.html">מדיניות פרטיות</a></div>
+    <p class="copy">כל הזכויות שמורות לניקה בליאק 2026</p>
+  </div>
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>
