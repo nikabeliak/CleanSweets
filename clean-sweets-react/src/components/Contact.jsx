@@ -1,4 +1,3 @@
-import ContactForm from './ContactForm';
 import { useTitle } from '../utils';
 
 export default function Contact() {
@@ -18,17 +17,13 @@ export default function Contact() {
         <p>במייל: לשיתופי פעולה, שאלות מפורטות או הצעות עסקיות, שלחו לי מייל לכתובת:</p>
         <p>כאן באתר: מוזמנים למלא את הפרטים בטופס בתחתית העמוד, ואחזור אליכם בהקדם האפשרי.</p>
         <p>
-          אינסטגרם: <strong>cleansweets_com</strong>
+          אינסטגרם:{' '}
+          <a href="https://www.instagram.com/cleansweets_com" target="_blank" rel="noreferrer">
+            <strong>cleansweets_com</strong>
+          </a>
           <br />
           אימייל: <strong>Nika.beliak@gmail.com</strong>
         </p>
-      </section>
-      <section className="newsletter">
-        <div className="wrap">
-          <h2>פה כדי להקשיב לכם</h2>
-          <p>מוזמנים לשתף אותי פה בשאלות, הצעות ובקשות לתכנים</p>
-          <ContactForm />
-        </div>
       </section>
     </>
   );

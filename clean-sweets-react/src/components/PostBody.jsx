@@ -54,12 +54,37 @@ export default function PostBody({ body = [] }) {
           return <h2 key={i}>{block.text}</h2>;
         }
         if (block.type === 'list') {
+          const Tag = block.ordered ? 'ol' : 'ul';
           return (
-            <ul key={i}>
+            <Tag key={i}>
               {(block.items || []).map((item, j) => (
-                <li key={j}>{item}</li>
+                <li key={j}>{typeof item === 'string' ? item : item}</li>
               ))}
-            </ul>
+            </Tag>
+          );
+        }
+        if (block.type === 'table') {
+          const rows = block.rows || [];
+          if (!rows.length) return null;
+          return (
+            <table key={i} className="nutrition">
+              <thead>
+                <tr>
+                  {rows[0].map((cell, c) => (
+                    <th key={c}>{cell}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {rows.slice(1).map((row, r) => (
+                  <tr key={r}>
+                    {row.map((cell, c) => (
+                      <td key={c}>{cell}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           );
         }
         const text = block.text || '';

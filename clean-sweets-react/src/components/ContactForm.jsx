@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
-export default function ContactForm() {
+export default function ContactForm({ variant = 'plain' }) {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  const footer = variant === 'footer';
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -14,18 +15,26 @@ export default function ContactForm() {
   }
 
   if (sent) {
-    return <p style={{ color: '#ececdb', fontSize: '1.1rem' }}>תודה! ההודעה נשלחה בהצלחה.</p>;
+    return <p className={footer ? 'footer-thanks' : ''} style={footer ? undefined : { color: '#ececdb', fontSize: '1.1rem' }}>תודה! ההודעה נשלחה בהצלחה.</p>;
   }
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <label htmlFor="c-name">שם מלא *</label>
-      <input id="c-name" name="name" required />
-      <label htmlFor="c-email">כתובת מייל *</label>
-      <input id="c-email" type="email" name="email" required />
-      <label htmlFor="c-msg">הודעה</label>
-      <textarea id="c-msg" name="message" />
-      <button className="btn" type="submit" disabled={sending}>
+    <form className={footer ? 'form form--footer' : 'form'} onSubmit={handleSubmit}>
+      <div className={footer ? 'form__row' : undefined}>
+        <label>
+          כתובת מייל *
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          שם מלא *
+          <input name="name" required />
+        </label>
+      </div>
+      <label>
+        {footer ? null : 'הודעה'}
+        <textarea name="message" placeholder={footer ? 'מוזמנים לשתף אותי פה בשאלות, הצעות ובקשות לתכנים' : undefined} />
+      </label>
+      <button className={footer ? 'btn btn--send' : 'btn'} type="submit" disabled={sending}>
         {sending ? 'שולח...' : 'שלח'}
       </button>
     </form>

@@ -4,7 +4,7 @@ import { assetUrl, useTitle } from '../utils';
 
 export default function Articles() {
   const articles = useArticles();
-  useTitle('כתבות');
+  useTitle('כתבות ומידע');
 
   return (
     <>
@@ -19,6 +19,7 @@ export default function Articles() {
             <div>
               <h3>{a.title}</h3>
               <p>{a.excerpt}</p>
+              <span className="article__more">קרא עוד</span>
             </div>
           </Link>
         ))}

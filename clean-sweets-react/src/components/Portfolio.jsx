@@ -1,4 +1,3 @@
-import ContactForm from './ContactForm';
 import { useTitle } from '../utils';
 
 export default function Portfolio() {
@@ -20,13 +19,9 @@ export default function Portfolio() {
           <img loading="lazy" src="/images/49aa8c_2a214b7fbfc84298a02e6d635d1f1ff6_mv2.jpg" alt="" />
           <img loading="lazy" src="/images/49aa8c_e57ef2e6476445c68556328550e7f7a6_mv2.jpg" alt="" />
         </div>
-      </section>
-      <section className="newsletter">
-        <div className="wrap">
-          <h2>פה כדי להקשיב לכם</h2>
-          <p>מוזמנים לשתף אותי פה בשאלות, הצעות ובקשות לתכנים</p>
-          <ContactForm />
-        </div>
+        <p>
+          אני עדיין בדרך, לומדת ומתפתחת כל הזמן. אשמח מאוד לשמוע מכם רעיונות למתכונים חדשים, קטגוריות נוספות או כתבות שתרצו שאעלה כאן. מוזמנים לכתוב לי בתחתית העמוד
+        </p>
       </section>
     </>
   );
